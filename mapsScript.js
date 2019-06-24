@@ -24,6 +24,14 @@ function initMap() {
         title: 'Field of Corn'
     });
 
+    var cornImgWindow = new google.maps.InfoWindow({
+            content: '<img src="https://lh5.googleusercontent.com/p/AF1QipM4ASZJ_iixLj-hBVTogquaj9q1270o2rg6kleg=s681-k-no">'
+        });
+
+        cornMarker.addListener('click', function() {
+            cornImgWindow.open(map, cornMarker);
+        });
+
     var facePark = new google.maps.Marker({
       position: {
         lng:  -83.075182,
@@ -110,6 +118,21 @@ function initMap() {
                 '<br>Longitude: ' + location.lng()
         });
 
-        infowindow.open(map, marker);
+        marker.addListener('click', function() {
+            infowindow.open(map, marker);
+        });
+
+        var picturewindow = new google.maps.InfoWindow({
+            content: '<img src="http://maps.google.com/mapfiles/kml/pal3/icon29.png">'
+        });
+
+        marker.addListener('mouseover', function() {
+            picturewindow.open(map, marker);
+        });
+
+        marker.addListener('mouseout', function() {
+            picturewindow.close(map, marker);
+        });
+
     }
 }
