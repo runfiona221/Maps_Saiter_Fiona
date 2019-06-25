@@ -2,14 +2,14 @@ var map;
 
 function initMap() {
     var centerCoords = {
-        lng: -83.1141,
-        lat: 40.085357
+        lng: -83.114203,
+        lat: 40.099513
       };
 
     map = new google.maps.Map(
         document.getElementById('map'), {
             center: centerCoords,
-            zoom: 13,
+            zoom: 12,
             mapTypeId: 'satellite'
         }
     );
@@ -67,6 +67,23 @@ function initMap() {
           bunnyParkWindow.open(map, bunnyPark);
       });
 
+      var griggsReservoirMarker = new google.maps.Marker({
+        position: {
+          lng: -83.090764,
+          lat: 40.016472
+        },
+        map: map,
+        icon: 'http://maps.google.com/mapfiles/kml/pal3/icon19.png',
+        title: 'Griggs Reservoir Park'
+      });
+
+      var griggsReservoirMarkerWindow = new google.maps.InfoWindow({
+        content: '<img src="https://i.pinimg.com/originals/92/e2/69/92e2693ddcf96544eca0878c5c780efd.jpg",  style="width: 70%; height: 70%">'
+      });
+      griggsReservoirMarker.addListener('click', function() {
+        griggsReservoirMarkerWindow.open(map, griggsReservoirMarker);
+      });
+
     var riverDeckMarker = new google.maps.Marker({
       position: {
         lng: -82.633587,
@@ -85,6 +102,24 @@ function initMap() {
         riverDeckMarkerWindow.open(map, riverDeckMarker);
       });
 
+      var dublinSpringsMarker = new google.maps.Marker({
+        position: {
+          lng: -83.11231,
+          lat: 40.099444
+        },
+        map: map,
+        icon: 'http://maps.google.com/mapfiles/kml/pal2/icon4.png',
+        title: 'Dublin Springs'
+      });
+
+      var dublinSpringsMarkerWindow = new google.maps.InfoWindow({
+        content: '<img src="https://dublinohiousa.gov/dev/dev/wp-content/uploads/2015/06/dublin-springs-open.png">'
+      });
+
+      dublinSpringsMarker.addListener('click', function() {
+        dublinSpringsMarkerWindow.open(map, dublinSpringsMarker);
+      });
+
 
     var waterMarker = new google.maps.Marker({
         position: {
@@ -94,6 +129,14 @@ function initMap() {
         map: map,
         icon: 'http://maps.google.com/mapfiles/kml/pal3/icon19.png',
         title: 'Indian Run Falls'
+    });
+
+    var waterMarkerWindow = new google.maps.InfoWindow({
+      content: '<img src="https://farm5.static.flickr.com/4865/45651267604_65266e88bf_b.jpg" style="width: 70%; height: 70%">'
+    });
+
+    waterMarker.addListener('click', function() {
+      waterMarkerWindow.open(map, waterMarker);
     });
 
     var waterFall2Marker = new google.maps.Marker({
@@ -107,7 +150,7 @@ function initMap() {
     });
 
     var waterFall2MarkerWindow = new google.maps.InfoWindow({
-      content: '<"img src="https://i.ytimg.com/vi/6PHuuj6f2DY/maxresdefault.jpg">'
+      content: '<img src="https://farm8.static.flickr.com/7839/40056182473_3ab29cf687_b.jpg", style="width: 70%; height: 70%">'
     });
 
     waterFall2Marker.addListener('click', function() {
@@ -154,7 +197,7 @@ function initMap() {
         });
 
         var picturewindow = new google.maps.InfoWindow({
-            content: '<img src="http://maps.google.com/mapfiles/kml/pal3/icon29.png">'
+            content: '<img src="http://maps.google.com/mapfiles/kml/pal4/icon47.png">'
         });
 
         marker.addListener('mouseover', function() {
