@@ -16,8 +16,8 @@ function initMap() {
 
     var cornMarker = new google.maps.Marker({
         position: {
-            lng: -83.088,
-            lat: 40.07952
+            lng: -83.123822,
+            lat: 40.085357
         },
         map: map,
         icon: 'http://maps.google.com/mapfiles/kml/pal2/icon4.png',
@@ -42,6 +42,14 @@ function initMap() {
       title: 'Scioto Park'
     });
 
+    var faceParkWindow = new google.maps.InfoWindow({
+      content: '<img src="https://s3-media2.fl.yelpcdn.com/bphoto/rWNCFebsEirY0-BzHUPNWg/l.jpg">'
+    });
+
+    facePark.addListener('click', function() {
+      faceParkWindow.open(map, facePark);
+    });
+
     var bunnyPark = new google.maps.Marker({
       position: {
         lng: -83.162089,
@@ -52,6 +60,13 @@ function initMap() {
       title: 'Ballantrae Community Park'
     });
 
+    var bunnyParkWindow = new google.maps.InfoWindow({
+      content: '<img src="https://media-cdn.tripadvisor.com/media/photo-s/0c/3c/42/a9/20160725-114056-largejpg.jpg">'
+    });
+      bunnyPark.addListener('click', function() {
+          bunnyParkWindow.open(map, bunnyPark);
+      });
+
     var riverDeckMarker = new google.maps.Marker({
       position: {
         lng: -82.633587,
@@ -60,7 +75,15 @@ function initMap() {
       map: map,
       icon: 'http://maps.google.com/mapfiles/kml/pal2/icon4.png',
       title: 'Riverway Kiwanis Park'
-    })
+    });
+
+    var riverDeckMarkerWindow = new google.maps.InfoWindow({
+      content: '<img src="https://www.columbus.gov/uploadedImages/Columbus/Departments/Recreation_and_Parks/Park/Riverway-Kiwanis-Park-Image.png">'
+    });
+
+      riverDeckMarker.addListener('click', function() {
+        riverDeckMarkerWindow.open(map, riverDeckMarker);
+      });
 
 
     var waterMarker = new google.maps.Marker({
@@ -81,6 +104,14 @@ function initMap() {
       map: map,
       icon: 'http://maps.google.com/mapfiles/kml/pal3/icon19.png',
       title: 'Hayden Falls'
+    });
+
+    var waterFall2MarkerWindow = new google.maps.InfoWindow({
+      content: '<"img src="https://i.ytimg.com/vi/6PHuuj6f2DY/maxresdefault.jpg">'
+    });
+
+    waterFall2Marker.addListener('click', function() {
+      waterFall2MarkerWindow.open(map, waterFall2Marker);
     });
 
     // event listeners
